@@ -43,9 +43,9 @@ function App() {
     //if letter matches
     if (wordArr.includes(input)) {
       let index = wordArr.indexOf(input);
-      console.log(lettersGuessed[index]);
       console.log(wordArr);
       console.log("you got 1");
+      //need a function here to handle more than one of the same letter
       setLettersGuessed({ ...lettersGuessed, [index]: true });
       // if letter is wrong AND is not blank
     } else if (input !== "") {

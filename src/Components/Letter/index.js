@@ -1,10 +1,11 @@
 import React from "react";
+import css from "./letter.module.css";
 
 function Letter({ letter, visibility }) {
   if (visibility === true) {
-    return <p>{letter.toUpperCase()}</p>;
+    return <span className={css.letter}>{letter.toUpperCase()}</span>;
   } else {
-    return <p>_</p>;
+    return <span className={css.letter}>_</span>;
   }
 }
 
