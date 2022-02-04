@@ -10,6 +10,7 @@ import Emoji from "./Components/Emoji";
 function App() {
   const [wordList, setWordList] = useState(words);
   const [currentWord, setCurrentWord] = useState("");
+  const [input, setInput] = useState("");
 
   function randomWord(wordList) {
     let min = Math.ceil(0);
@@ -18,6 +19,11 @@ function App() {
 
     setCurrentWord(wordList[random]);
     console.log("The word is: " + currentWord);
+  }
+
+  function handleInput(userInput) {
+    console.log(userInput);
+    setInput(userInput);
   }
 
   return (
@@ -35,7 +41,7 @@ function App() {
       />
       <Emoji />
       <LetterArea currentWord={currentWord} />
-      <Input />
+      <Input handleInput={handleInput} />
     </div>
   );
 }
