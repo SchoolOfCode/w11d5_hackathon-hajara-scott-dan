@@ -46,7 +46,7 @@ function App() {
       console.log(lettersGuessed[index]);
       console.log(wordArr);
       console.log("you got 1");
-      setLettersGuessed({ ...lettersGuessed, [lettersGuessed.index]: true });
+      setLettersGuessed({ ...lettersGuessed, [index]: true });
       // if letter is wrong AND is not blank
     } else if (input !== "") {
       //increment happiness index
