@@ -6,53 +6,81 @@ import { useState, useEffect } from "react";
 import LetterArea from "./Components/LetterArea";
 import Input from "./Components/Input";
 import Emoji from "./Components/Emoji";
+import emojisArr from "./emojiData";
 
 function App() {
-	const [wordList, setWordList] = useState(words);
-	const [currentWord, setCurrentWord] = useState("");
-	const [input, setInput] = useState("");
+  const [wordList, setWordList] = useState(words);
+  const [currentWord, setCurrentWord] = useState("");
+  const [input, setInput] = useState("");
+  const [happiness, setHappiness] = useState(0);
+  const [lettersGuessed, setLettersGuessed] = useState({
+    0: false,
+    1: true,
+    2: false,
+    3: false,
+    4: false,
+  });
 
-	function randomWord(wordList) {
-		let min = Math.ceil(0);
-		let max = Math.floor(5);
-		let random = Math.floor(Math.random() * (max - min) + min);
-		setCurrentWord(wordList[random]);
-		console.log("The word is: " + currentWord);
-	}
+  function randomWord(wordList) {
+    let min = Math.ceil(0);
+    let max = Math.floor(5);
+    let random = Math.floor(Math.random() * (max - min) + min);
+    setCurrentWord(wordList[random]);
+  }
 
-	//useEffect(randomWord(wordList), []);
+  // function increaseIndex(index) {
+  //   index;
+  // }
+  //useEffect(randomWord(wordList), []);
 
-	function handleInput(userInput) {
-		console.log(userInput);
-		setInput(userInput);
-		//checkWord(input);
-	}
+  function handleInput(userInput) {
+    console.log(userInput);
+    setInput(userInput);
+  }
 
-	function checkWord(input) {
-		let wordArr = currentWord.split("");
-		if (wordArr.includes(input)) {
-			console.log("you got 1");
-		}
-	}
+  function checkWord(input) {
+    let wordArr = currentWord.toUpperCase().split("");
+    //if letter matches
+    if (wordArr.includes(input)) {
+      let index = wordArr.indexOf(input);
+      console.log(lettersGuessed[index]);
+      console.log(wordArr);
+      console.log("you got 1");
+      setLettersGuessed({ ...lettersGuessed, [lettersGuessed.index]: true });
+      // if letter is wrong AND is not blank
+    } else if (input !== "") {
+      //increment happiness index
+      if (happiness < 4) {
+        setHappiness(happiness + 1);
+      } else {
+        console.log("GAME OVER");
+      }
+    }
+  }
 
-	return (
-		<div className="App">
-			{/* <header className="App-header">
+  useEffect(() => {
+    checkWord(input);
+    console.log(lettersGuessed);
+  }, [input]);
+
+  return (
+    <div className="App">
+      {/* <header className="App-header">
         <img src={logo} alt="logo" />
         <p className="App-logo">Worjie!</p>
       </header> */}
 
-			<h1>Worjie!</h1>
-			<Play
-				clickHandler={() => {
-					randomWord(wordList);
-				}}
-			/>
-			<Emoji />
-			<LetterArea currentWord={currentWord} />
-			<Input handleInput={handleInput} />
-		</div>
-	);
+      <h1>Worjie!</h1>
+      <Play
+        clickHandler={() => {
+          randomWord(wordList);
+        }}
+      />
+      <Emoji happiness={happiness} />
+      <LetterArea currentWord={currentWord} lettersGuessed={lettersGuessed} />
+      <Input handleInput={handleInput} />
+    </div>
+  );
 }
 
 export default App;
