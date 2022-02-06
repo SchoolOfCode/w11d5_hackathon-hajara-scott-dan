@@ -1,45 +1,11 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-f059dc9a6f8d3a56e377f745f24479a46679e63a5d9fe6f495e02850cd0d8118.svg)](https://classroom.github.com/online_ide?assignment_repo_id=6910812&assignment_repo_type=AssignmentRepo)
-![](src/soc-logo.svg)
-# Hackathon Web App, CodeWars or Learning Resource
+# Worjie
 
-Welcome to your penultimate hackathon!
+## A fun little word-guessing game
 
-For this hackathon you can pick one of the following:
+This was created on the afternoon of 04-02-22 for the [School Of Code](www.schoolofcode.com) bootcamp as part of a friday afternoon end of the week hackathon.
 
-- Build a web app with React
-- Make your own CodeWars
-- Make a learning resource for a particular topic, in the form of a blog post, video explainer or tutorial
+Our task was to explore some of the technologies we'd been working with over the past few weeks. Because of the short time alloted to the task we decided to keep things simple and focused on building a fun little game with React.
 
-This repo has already been scaffolded with a React app using `create-react-app`. If you're going with one of the other options, feel free to delete all of the React code and complete the CodeWars/learning resource in this repo instead.
+This is what we got to by the end of the afternoon, it's a pretty simple variation on the game of 'hangman' where the player can guess one letter at a time to slowly reveal the hidden word. Any wrong guesses lead to the loss of a life, and lose 5 lives and it's game over!
 
-## Web App
-
-In your teams, build any React app. We encourage you to explore and experiment with all the things you've been introduced to over the last two weeks, some of which are:
-
-- Deployments
-- Authentication
-- Authorisation
-- UI Libraries
-- Storybook
-- NextJS
-- Gatsby
-- Custom Hooks
-
-The main aim is to engineer a React app, so only bring any of the above things in with a light touch; you have less than a day so scale your plan accordingly!
-
-As always, spend a bit of time ideating and planning, and then build your React app.
-
-## CodeWars
-
-1. Write your kata
-2. Write your tests
-
-Refer back to the make-your-own-codewars workshop done before the Christmas break for more detailed instructions.
-
-## Learning Resource
-
-Create a learning resource to be shared with everyone for any of the topics we've covered. It can be in the form of a video explainer, blog post or some other type of tutorial.
-
-## Presentations
-
-Close to the end of the day you'll present to each other in small groups, sharing what you've learnt and achieved during the day.
+![screenshot](./screenshot.PNG)

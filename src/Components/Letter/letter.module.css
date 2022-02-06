@@ -1,0 +1,15 @@
+.letter {
+  display: flex;
+  background-color: rgb(68, 68, 68);
+  /* padding: 0.5em; */
+  border-radius: 50%;
+  margin: 1rem;
+  color: white;
+  font-weight: 800;
+  font-size: 3em;
+  width: 3em;
+  height: 3em;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 5px 2px #452c80;
+}
